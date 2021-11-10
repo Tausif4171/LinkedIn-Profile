@@ -90,14 +90,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
          ?>
 
             <div class="card-body" id="fas">
-               <h5 class="card-title" id="fas1"><?php echo $res['School']; ?></h5>
+               <h5 class="card-title" id="fas1"><?php echo $res['School']; ?><a href="#" id="fas1" style="width:70px; float: right" class="btn btn-success">Edit</a></h5>
                <p class="card-text" id="fas1"><?php echo $res['Degree']; ?>, <?php echo $res['Field']; ?></p>
 
                <h6 class="card-text" id="fas1"><?php echo $res['Grade']; ?></h6>
-               <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a>
+               <!-- <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a> -->
                <!-- <button type="button" id="fas1" class="btn-danger btn deletebtn">Delete</button> -->
 
-               <button type="button" class="btn-danger btn" data-toggle="modal" data-target="#deletemodal">Delete</button>
+               <!-- <button type="button" class="btn-danger btn" data-toggle="modal" data-target="#deletemodal">Delete</button> -->
             </div>
 
          <?php
@@ -106,30 +106,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       </div>
    </div>
 
-   <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <form action="delete.php" method="POST">
 
-               <div class="modal-body">
-                  <input type="hidden" name="delete_id" id="delete_id">
-                  <h4>Do you want to Delete this Data ??</h4>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                  <button type="submit" name="deletedata" class="btn btn-primary">Yes !! Delete it.</button>
-               </div>
-
-            </form>
-         </div>
-      </div>
-   </div>
    <br>
    <br>
    <div class="container">
@@ -233,6 +210,33 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
          </div>
       </div>
    </div>
+
+
+   <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <form action="delete.php" method="POST">
+
+               <div class="modal-body">
+                  <input type="hidden" name="delete_id" id="delete_id">
+                  <h4>Do you want to Delete this Data ??</h4>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                  <button type="submit" name="deletedata" class="btn btn-primary">Yes !! Delete it.</button>
+               </div>
+
+            </form>
+         </div>
+      </div>
+   </div>
+
 
    <script>
       $(document).ready(function() {
