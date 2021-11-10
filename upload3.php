@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     
   $file = $_FILES['file']['name'];
 $fileDestination = 'uploads/'.$fileNameNew;
-$result = "INSERT INTO `videos`(`Name`, `Date`, `Desc`, `Url`, `video`) VALUES ('$name', '$date', '$desc', '$url', '$file')";
+$result = "INSERT INTO `gallery`(`Name`, `Date`, `Desc`, `Url`, `file`) VALUES ('$name', '$date', '$desc', '$url', '$file')";
 
 $query = mysqli_query($conn,$result);
 
