@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
       <div class="form-group">
         <label for="inputZip">Profile Photo</label><br>
-        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+        <input type="file" name="file" class="form-control-file" id="file">
       </div>
       <!-- <div class="custom-file col-md-6">
         <input type="file" class="custom-file-input" id="customFile">

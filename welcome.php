@@ -73,7 +73,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
    <div class="container">
       <div class="card" style="width: 19rem;">
-      <?php
+         <?php
 
          include 'config.php';
 
@@ -83,21 +83,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 
          ?>
-         <img class="card-img-top" style="height:200px; width:200px; margin-left:20px; border-radius:50%; margin-top:10px" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="Card image cap">
-         <div class="card-body">
-            <h5 class="card-title"><?php echo $res['username']; ?></h5>
-            <p class="card-text"><?php echo $res['Bio']; ?></p>
-            <h6 class="card-text" id="fas1"><?php echo $res['Phone']; ?></h6>
-            <h6 class="card-text" id="fas1"><?php echo $res['Email']; ?></h6>
-            <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a>
+            <img class="card-img-top" style="height:200px; width:200px; margin-left:20px; border-radius:50%; margin-top:10px" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title"><?php echo $res['username']; ?></h5>
+               <p class="card-text"><?php echo $res['Bio']; ?></p>
+               <h6 class="card-text" id="fas1"><?php echo $res['Phone']; ?></h6>
+               <h6 class="card-text" id="fas1"><?php echo $res['Email']; ?></h6>
+               <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a>
 
-         </div>
+            </div>
          <?php
          }
          ?>
       </div>
    </div>
-<br><br>
+   <br><br>
 
    <div class="container">
       <div class="card">
@@ -108,7 +108,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
          <?php
 
-         
+
 
          $q = "select * from education";
          $query = mysqli_query($conn, $q);
@@ -168,6 +168,46 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                <!-- <button type="button" class="btn-danger btn" data-toggle="modal" data-target="#deletemodal">Delete</button> -->
             </div>
 
+         <?php
+         }
+         ?>
+      </div>
+   </div>
+
+   <br>
+   <br>
+
+
+   <div class="container">
+   <h5 class="card-header">Youtube Videos<a href="#" class="btn btn-primary" style="float:right; width:70px; margin-top:-6px" data-toggle="modal" data-target="#exampleModal2">Add</a>
+         </h5><br>
+      <div class="row">
+         <?php
+
+
+         $q = " select * from videos ";
+         $query = mysqli_query($conn, $q);
+         while ($res = mysqli_fetch_array($query)) {
+
+
+         ?>
+            <div class="col-sm-6 col-lg-4 col-xl-4">
+               <div class="single-home-passion">
+                  <div class="card">
+                     <img src="<?php echo "./uploads/" . $res['video']; ?>" class="card-img-top" alt="Image">
+                     <div class="card-body" id="fas">
+               <h5 class="card-title" id="fas1"><?php echo $res['Name']; ?><a href="#" id="fas1" style="width:70px; float: right" class="btn btn-success">Edit</a></h5>
+               <p class="card-text" id="fas1"><?php echo $res['Desc']; ?></p>
+               <h6 class="card-text" id="fas1"><?php echo $res['Date']; ?></h6>
+               <h6 class="card-text" id="fas1"><?php echo $res['Url']; ?></h6>
+               <!-- <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a> -->
+               <!-- <button type="button" id="fas1" class="btn-danger btn deletebtn">Delete</button> -->
+
+               <!-- <button type="button" class="btn-danger btn" data-toggle="modal" data-target="#deletemodal">Delete</button> -->
+            </div>
+                  </div>
+               </div>
+            </div>
          <?php
          }
          ?>
@@ -286,6 +326,52 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       </div>
    </div>
 
+   <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Add Videos</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form action="upload2.php" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Name</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Enter email">
+
+                  </div>
+
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Date</label>
+                     <input type="date" class="form-control" id="exampleInputEmail1" name="date" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Description</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="desc" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">URL</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="url" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="inputZip">Video</label><br>
+                     <input type="file" name="file" class="form-control-file" id="file">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                  </div>
+               </form>
+            </div>
+
+         </div>
+      </div>
+   </div>
 
    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
