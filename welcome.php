@@ -72,6 +72,34 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
    </div>
 
    <div class="container">
+      <div class="card" style="width: 19rem;">
+      <?php
+
+         include 'config.php';
+
+         $q = "select * from users";
+         $query = mysqli_query($conn, $q);
+         while ($res = mysqli_fetch_array($query)) {
+
+
+         ?>
+         <img class="card-img-top" style="height:200px; width:200px; margin-left:20px; border-radius:50%; margin-top:10px" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="Card image cap">
+         <div class="card-body">
+            <h5 class="card-title"><?php echo $res['username']; ?></h5>
+            <p class="card-text"><?php echo $res['Bio']; ?></p>
+            <h6 class="card-text" id="fas1"><?php echo $res['Phone']; ?></h6>
+            <h6 class="card-text" id="fas1"><?php echo $res['Email']; ?></h6>
+            <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a>
+
+         </div>
+         <?php
+         }
+         ?>
+      </div>
+   </div>
+<br><br>
+
+   <div class="container">
       <div class="card">
 
          <h5 class="card-header">Education<a href="#" class="btn btn-primary" style="float:right; width:70px; " data-toggle="modal" data-target="#exampleModal">Add</a>
@@ -80,7 +108,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
          <?php
 
-         include 'config.php';
+         
 
          $q = "select * from education";
          $query = mysqli_query($conn, $q);
@@ -95,7 +123,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
                <h6 class="card-text" id="fas1"><?php echo $res['Grade']; ?></h6>
                <h6 class="card-text" id="fas1"><?php echo $res['StartDate']; ?> - <?php echo $res['EndDate']; ?></h6>
-               
+
                <!-- <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a> -->
                <!-- <button type="button" id="fas1" class="btn-danger btn deletebtn">Delete</button> -->
 
@@ -120,7 +148,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
          <?php
 
-         
+
 
          $q = "select * from certification";
          $query = mysqli_query($conn, $q);
