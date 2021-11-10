@@ -94,6 +94,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                <p class="card-text" id="fas1"><?php echo $res['Degree']; ?>, <?php echo $res['Field']; ?></p>
 
                <h6 class="card-text" id="fas1"><?php echo $res['Grade']; ?></h6>
+               <h6 class="card-text" id="fas1"><?php echo $res['StartDate']; ?> - <?php echo $res['EndDate']; ?></h6>
+               
                <!-- <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a> -->
                <!-- <button type="button" id="fas1" class="btn-danger btn deletebtn">Delete</button> -->
 
@@ -106,10 +108,47 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       </div>
    </div>
 
+   <br>
+   <br>
+
+   <div class="container">
+      <div class="card">
+
+         <h5 class="card-header">Certification<a href="#" class="btn btn-primary" style="float:right; width:70px; " data-toggle="modal" data-target="#exampleModal1">Add</a>
+         </h5>
+         <!-- <a href="#" class="btn btn-primary" style="margin-left:20px; width:70px; margin-top:12px " data-toggle="modal" data-target="#exampleModal1">Add</a> -->
+
+         <?php
+
+         
+
+         $q = "select * from certification";
+         $query = mysqli_query($conn, $q);
+         while ($res = mysqli_fetch_array($query)) {
+
+
+         ?>
+
+            <div class="card-body" id="fas">
+               <h5 class="card-title" id="fas1"><?php echo $res['Name']; ?><a href="#" id="fas1" style="width:70px; float: right" class="btn btn-success">Edit</a></h5>
+               <p class="card-text" id="fas1"><?php echo $res['Issuing']; ?></p>
+               <h6 class="card-text" id="fas1"><?php echo $res['Date']; ?></h6>
+               <h6 class="card-text" id="fas1"><?php echo $res['CredentialURL']; ?></h6>
+               <!-- <a href="#" id="fas1" style="width:70px;" class="btn btn-success">Edit</a> -->
+               <!-- <button type="button" id="fas1" class="btn-danger btn deletebtn">Delete</button> -->
+
+               <!-- <button type="button" class="btn-danger btn" data-toggle="modal" data-target="#deletemodal">Delete</button> -->
+            </div>
+
+         <?php
+         }
+         ?>
+      </div>
+   </div>
 
    <br>
    <br>
-   <div class="container">
+   <!-- <div class="container">
       <div class="card">
          <h5 class="card-header">Certification</h5>
 
@@ -121,7 +160,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
          </div>
 
       </div>
-   </div>
+   </div> -->
 
 
    <!-- Modal -->
@@ -129,7 +168,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <h5 class="modal-title" id="exampleModalLabel">Add Education</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -156,6 +195,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                      <input type="name" class="form-control" name="grade" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Start Date</label>
+                     <input type="date" class="form-control" id="exampleInputEmail1" name="date" aria-describedby="emailHelp" placeholder="Enter date">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">End Date</label>
+                     <input type="date" class="form-control" id="exampleInputEmail1" name="date1" aria-describedby="emailHelp" placeholder="Enter date">
+                  </div>
 
 
                   <div class="modal-footer">
@@ -173,40 +220,40 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <h5 class="modal-title" id="exampleModalLabel">Add Certification</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
             </div>
             <div class="modal-body">
-               <form>
+               <form action="upload1.php" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
-                     <label for="exampleInputEmail1">Schools</label>
-                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <label for="exampleInputEmail1">Name</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Enter email">
                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
-                     <label for="exampleInputEmail1">Degree</label>
-                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <label for="exampleInputEmail1">Issuing organization</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="issuing" aria-describedby="emailHelp" placeholder="Enter email">
                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
-                     <label for="exampleInputEmail1">Field of study</label>
-                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <label for="exampleInputEmail1">Date</label>
+                     <input type="date" class="form-control" id="exampleInputEmail1" name="date" aria-describedby="emailHelp" placeholder="Enter email">
                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
-                     <label for="exampleInputEmail1">Grade</label>
-                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <label for="exampleInputEmail1">Credential URL</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" name="credential" aria-describedby="emailHelp" placeholder="Enter email">
                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
-
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                  </div>
                </form>
             </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <a href="welcome.php"><button type="button" class="btn btn-primary">Submit</button></a>
-            </div>
+
          </div>
       </div>
    </div>

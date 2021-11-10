@@ -7,16 +7,16 @@ include 'config.php';
 if(isset($_POST['submit'])){
 
 
-    $school = $_POST['school'];
-    $degree = $_POST['degree'];
-    $field = $_POST['field'];
-    $grade = $_POST['grade'];
+    $name = $_POST['name'];
+    $issuing = $_POST['issuing'];
     $date = $_POST['date'];
-    $date1 = $_POST['date1'];
+    $credential = $_POST['credential'];
+
+    $choose = $_POST['choose'];
     
   $file = $_FILES['file']['name'];
 // $fileDestination = 'uploads/'.$fileNameNew;
-$result = "INSERT INTO `education`(`School`, `Degree`, `Field`, `Grade`, `StartDate`, `EndDate`) VALUES ('$school', '$degree', '$field', '$grade', '$date', '$date1')";
+$result = "INSERT INTO `certification`(`Name`, `Issuing`, `Date`, `CredentialURL`) VALUES ('$name', '$issuing', '$date', '$credential')";
 
 $query = mysqli_query($conn,$result);
 
