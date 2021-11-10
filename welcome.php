@@ -2,9 +2,8 @@
 
 session_start();
 
-if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
-{
-    header("location: login.php");
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+   header("location: login.php");
 }
 
 
@@ -13,143 +12,257 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://static-exp1.licdn.com/sc/h/6pt0354ltxoiwiaugx9k0kd5l" rel="stylesheet">
-<link href="https://static-exp1.licdn.com/sc/h/2zz1lwk9wr3w8wld1jhyz6xsc" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>login system!</title>
-    
-  </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" style="font-size: 21px;">Login System</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" style="font-size: 16px;">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="register.php" style="font-size: 16px;">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php" style="font-size: 16px;">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php" style="font-size: 16px;">Logout</a>
-      </li>
-
-      
-     
-    </ul>
-
-  <div class="navbar-collapse collapse">
-  <ul class="navbar-nav ml-auto">
-  <li class="nav-item active" style="font-size: 17px;">
-        <a class="nav-link" href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png" > <?php echo "Welcome ". $_SESSION['username'] ?></a>
-      </li>
-  </ul>
-  </div>
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  </div>
-</nav>
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<div class="container mt-4">
-<h3><?php echo "Welcome ". $_SESSION['username']?>! You can now use this website</h3>
-<hr>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-</div>
+   <title>login system!</title>
 
-<div id="abc" style="background-color: lightblue;">
-<div id="oc-background-section" class="pv-oc ember-view">
-   <span class="background-details">
-      <div id="ember241" class="ember-view">
-         <section id="ember242" class="pv-profile-section pv-profile-section--reorder-enabled background-section artdeco-card mt4 ember-view">
-            <!---->
-            <div id="ember243" class="pv-profile-section-pager ember-view">
-               <section id="education-section" class="pv-profile-section education-section ember-view">
-                  <header class="pv-profile-section__card-header">
-                     <h2 class="pv-profile-section__card-heading">
-                        Education
-                     </h2>
-                     <a data-control-name="add_education" href="/in/tausif-khan-123703198/edit/forms/education/new/?profileFormEntryPoint=PROFILE_SECTION" id="ember245" class="pv-profile-section__header-add-action add-education artdeco-button artdeco-button--tertiary artdeco-button--circle artdeco-button--muted ember-view">
-                        <li-icon type="plus-icon" role="img" aria-label="Add new education">
-                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
-                              <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
-                           </svg>
-                        </li-icon>
-                     </a>
-                  </header>
-                  <ul class="pv-profile-section__section-info section-info
-                     pv-profile-section__section-info--has-no-more">
-                     <li id="645682046" class="pv-profile-section__list-item pv-education-entity pv-profile-section__card-item ember-view">
-                        <div class="display-flex justify-space-between full-width">
-                           <div class="display-flex flex-column full-width">
-                              <a data-control-name="background_details_school" href="/school/216483/?legacySchoolId=216483" id="ember247" class="ember-view">
-                                 <div class="pv-entity__logo">
-                                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="Aldel Education Trusts St John College of Engg Vevoor Palghar Tal Palghar Dist Thane" id="ember249" class="pv-entity__logo-img pv-entity__logo-img EntityPhoto-square-4 lazy-image ghost-school ember-view">
-                                 </div>
-                                 <div class="pv-entity__summary-info pv-entity__summary-info--background-section">
-                                    <div class="pv-entity__degree-info">
-                                       <h3 class="pv-entity__school-name t-16 t-black t-bold">Aldel Education Trusts St John College of Engg Vevoor Palghar Tal Palghar Dist Thane</h3>
-                                       <p class="pv-entity__secondary-title pv-entity__degree-name t-14 t-black t-normal">
-                                          <span class="visually-hidden">Degree Name</span>
-                                          <span class="pv-entity__comma-item">Bachelor of Engineering - BE</span>
-                                       </p>
-                                       <p class="pv-entity__secondary-title pv-entity__fos t-14 t-black t-normal">
-                                          <span class="visually-hidden">Field Of Study</span>
-                                          <span class="pv-entity__comma-item">Computer Science</span>
-                                       </p>
-                                       <!---->  
-                                    </div>
-                                    <p class="pv-entity__dates t-14 t-black--light t-normal">
-                                       <span class="visually-hidden">Dates attended or expected graduation</span>
-                                       <span>
-                                       <time>2019</time> � <time>2022</time>
-                                       </span>
-                                    </p>
-                                    <!---->
-                                 </div>
-                              </a>
-                              <!---->  
-                           </div>
-                           <div class="pv-entity__actions">
-                              <a data-control-name="edit_education" href="/in/tausif-khan-123703198/edit/forms/education/645682046/?profileFormEntryPoint=PROFILE_SECTION" id="ember250" class="pv-profile-section__edit-action pv-profile-section__hoverable-action artdeco-button artdeco-button--tertiary artdeco-button--circle artdeco-button--muted ember-view">
-                                 <li-icon type="pencil-icon" role="img" aria-label="Edit education Aldel Education Trusts St John College of Engg Vevoor Palghar Tal Palghar Dist Thane">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
-                                       <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z"></path>
-                                    </svg>
-                                 </li-icon>
-                              </a>
-                              <!---->    
-                           </div>
-                        </div>
-                     </li>
-                  </ul>
-                  <!---->
-               </section>
-            </div>
-            <!---->
-            <!---->
-         </section>
+</head>
+
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Login System</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav">
+            <li class="nav-item active">
+               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="register.php">Register</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="logout.php">Logout</a>
+            </li>
+
+
+
+         </ul>
+
+         <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"> <?php echo "Welcome " . $_SESSION['username'] ?></a>
+               </li>
+            </ul>
+         </div>
+
+
       </div>
-   </span>
-</div>
-</div>
+   </nav>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+   <div class="container mt-4">
+      <h3 style="font-size: 22px;"><?php echo "Welcome " . $_SESSION['username'] ?>! You can now use this website</h3>
+      <hr>
+
+   </div>
+
+   <div class="container">
+      <div class="card">
+
+         <h5 class="card-header">Education<a href="#" class="btn btn-primary" style="float:right; width:70px; " data-toggle="modal" data-target="#exampleModal">Add</a>
+         </h5>
+         <!-- <a href="#" class="btn btn-primary" style="margin-left:20px; width:70px; margin-top:12px " data-toggle="modal" data-target="#exampleModal1">Add</a> -->
+
+         <?php
+
+         include 'config.php';
+
+         $q = "select * from education";
+         $query = mysqli_query($conn, $q);
+         while ($res = mysqli_fetch_array($query)) {
+
+
+         ?>
+            <div class="card-body">
+               <h5 class="card-title"><?php echo $res['School']; ?></h5>
+               <p class="card-text"><?php echo $res['Degree']; ?>, <?php echo $res['Field']; ?></p>
+
+               <h6 class="card-text"><?php echo $res['Grade']; ?></h6>
+               <a href="#" style="width:70px;" class="btn btn-success">Edit</a>
+               <button type="button" class="btn-danger btn deletebtn">Delete</button>
+            </div>
+
+         <?php
+         }
+         ?>
+      </div>
+   </div>
+
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="delete.php" method="POST">
+
+                    <div class="modal-body">
+                      <input type="hidden" name="delete_id" id="delete_id">
+                      <h4>Do you want to Delete this Data ??</h4>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                      <button type="submit" name="deletedata" class="btn btn-primary">Yes !! Delete it.</button>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+   <br>
+   <br>
+   <div class="container">
+      <div class="card">
+         <h5 class="card-header">Certification</h5>
+
+         <div class="card-body">
+            <a href="#" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModal1">Add</a>
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-success">Edit</a>
+         </div>
+
+      </div>
+   </div>
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form action="upload.php" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">School</label>
+                     <input type="name" class="form-control" name="school" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Degree</label>
+                     <input type="name" class="form-control" name="degree" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Field of study</label>
+                     <input type="name" class="form-control" name="field" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Grade</label>
+                     <input type="name" class="form-control" name="grade" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+
+
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Schools</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Degree</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Field of study</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Grade</label>
+                     <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+
+               </form>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <a href="welcome.php"><button type="button" class="btn btn-primary">Submit</button></a>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script>
+              $(document).ready(function() {
+
+                $('.deletebtn').on('click', function() {
+
+                  $('#deletemodal').modal('show');
+
+                  $tr = $(this).closest('tr');
+
+                  var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                  }).get();
+
+                  console.log(data);
+
+                  $('#delete_id').val(data[0]);
+
+                });
+
+              });
+            </script>
+
+
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
 </html>
